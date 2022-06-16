@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get "/movies/:id" => "movies#show"
 
   post "/users" => "users#create"
+  get "/users" => "users#index"
 end

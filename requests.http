@@ -14,3 +14,6 @@ Content-Type: application/json
   "password": "password",
   "password_confirmation": "password"
 }
+
+### Users Index
+get http://localhost:3000/users.json 
