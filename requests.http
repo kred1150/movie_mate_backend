@@ -9,7 +9,7 @@ post http://localhost:3000/users.json
 Content-Type: application/json
 
 {
-  "username": "kred",
+  "username": "kevin",
   "email": "kevin@test.com",
   "password": "password",
   "password_confirmation": "password"
