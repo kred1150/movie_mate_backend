@@ -3,3 +3,14 @@ get http://localhost:3000/movies
 
 ### Movies Show
 get http://localhost:3000/movies/526896.json 
+
+### User Create
+post http://localhost:3000/users.json
+Content-Type: application/json
+
+{
+  "username": "kred",
+  "email": "kevin@test.com",
+  "password": "password",
+  "password_confirmation": "password"
+}
