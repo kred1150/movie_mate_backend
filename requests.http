@@ -1,0 +1,5 @@
+### Movies Index
+get http://localhost:3000/movies
+
+### Movies Show
+get http://localhost:3000/movies/526896.json 
