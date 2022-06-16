@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "/movies" => "movies#index"
   get "/movies/:id" => "movies#show"
 
-  post "/users" => "users#create"
   get "/users" => "users#index"
+  get "/users/:id" => "users#show"
+  post "/users" => "users#create"
 end

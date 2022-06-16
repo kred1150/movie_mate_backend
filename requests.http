@@ -9,11 +9,14 @@ post http://localhost:3000/users.json
 Content-Type: application/json
 
 {
-  "username": "kevin",
-  "email": "kevin@test.com",
+  "username": "test",
+  "email": "test@test.com",
   "password": "password",
   "password_confirmation": "password"
 }
 
 ### Users Index
 get http://localhost:3000/users.json 
+
+### User Show
+get http://localhost:3000/users/2
