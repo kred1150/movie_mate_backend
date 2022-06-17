@@ -17,4 +17,9 @@ class RatedMoviesController < ApplicationController
     rated_movies = RatedMovie.all
     render json: rated_movies.as_json
   end
+
+  def show
+    rated_movie = RatedMovie.find_by(id: params[:id])
+    render json: rated_movie.as_json
+  end
 end
