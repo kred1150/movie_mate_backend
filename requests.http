@@ -9,8 +9,8 @@ post http://localhost:3000/users.json
 Content-Type: application/json
 
 {
-  "username": "test",
-  "email": "test@test.com",
+  "username": "testy",
+  "email": "testy@test.com",
   "password": "password",
   "password_confirmation": "password"
 }
@@ -20,3 +20,6 @@ get http://localhost:3000/users.json
 
 ### User Show
 get http://localhost:3000/users/2
+
+### User Destroy
+delete http://localhost:3000/users/3
