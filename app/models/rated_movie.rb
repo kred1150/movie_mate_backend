@@ -1,0 +1,2 @@
+class RatedMovie < ApplicationRecord
+end
