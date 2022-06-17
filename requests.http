@@ -9,8 +9,8 @@ post http://localhost:3000/users.json
 Content-Type: application/json
 
 {
-  "username": "testy",
-  "email": "testy@test.com",
+  "username": "kevin",
+  "email": "kevin@test.com",
   "password": "password",
   "password_confirmation": "password"
 }
@@ -23,3 +23,17 @@ get http://localhost:3000/users/2
 
 ### User Destroy
 delete http://localhost:3000/users/3
+
+### RatedMovie Index
+get http://localhost:3000/rated_movies
+
+### RatedMovie Create 
+post http://localhost:3000/rated_movies.json 
+Content-Type: application/json
+
+{
+  "rating": 5.7,
+  "message": "A lot to be desired",
+  "user_id": 2,
+  "movie_id": 1
+}
