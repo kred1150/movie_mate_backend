@@ -13,14 +13,16 @@ movies = JSON.parse(response.body)["results"]
 # Loop through API movie list to seed Movie Model
 movies.each do |movie|
   Movie.create(
-    external_id: movie[:id],
-    title: movie[:title],
-    overview: movie[:overview],
-    poster_path: movie[:poster_path],
-    release_date: movie[:release_date],
-    runtime: movie[:runtime],
-    vote_average: movie[:vote_average],
-    vote_count: movie[:vote_count],
+    external_id: movie["id"],
+    title: movie["title"],
+    overview: movie["overview"],
+    poster_path: movie["poster_path"],
+    release_date: movie["release_date"],
+    runtime: movie["runtime"],
+    vote_average: movie["vote_average"],
+    vote_count: movie["vote_count"],
   )
-  binding.pry
+  # binding.pry
 end
+
+# https://image.tmdb.org/t/p/w1280/
