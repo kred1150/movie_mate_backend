@@ -3,7 +3,7 @@ class RatedMoviesController < ApplicationController
     rated_movie = RatedMovie.new(
       rating: params[:rating],
       message: params[:message],
-      user_id: params[:user_id],
+      user_id: current_user.id,
       movie_id: params[:movie_id],
     )
     if rated_movie.save
