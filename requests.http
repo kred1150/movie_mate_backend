@@ -1,3 +1,5 @@
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NTYxMTQ3MTJ9.RUR7stYujE4A2FOihtfHexiXHBcWK7FKUDVF34ZmDTU
+
 ### Movies Index
 get http://localhost:3000/movies.json
 
@@ -40,3 +42,12 @@ Content-Type: application/json
 
 ### RatedMovie Show
 get  http://localhost:3000/rated_movies/2
+
+### Sessions Create (Login)
+POST http://localhost:3000/sessions.json
+Content-Type: application/json
+
+{
+  "username": "kevin",
+  "password": "password"
+}

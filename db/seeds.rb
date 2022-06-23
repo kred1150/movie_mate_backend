@@ -5,8 +5,9 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-i = 1
+
 # Pull API data for all movies
+i = 1
 while i < 20
   response = HTTP.get("https://api.themoviedb.org/3/discover/movie?api_key=#{ENV["TMDB_API_KEY"]}&language=en-US&page=#{i}")
   movies = JSON.parse(response.body)["results"]

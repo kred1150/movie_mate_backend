@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   post "/users" => "users#create"
   delete "/users/:id" => "users#destroy"
 
+  post "/sessions" => "sessions#create"
+
   get "/rated_movies" => "rated_movies#index"
   get "/rated_movies/:id" => "rated_movies#show"
   post "/rated_movies" => "rated_movies#create"
