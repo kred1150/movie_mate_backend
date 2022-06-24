@@ -1,4 +1,4 @@
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NTYxMTQ5ODd9.W_pUhKswQNvbrj5VZ3OvJ7Mcml-b5bsL7pgd2HM_EYQ
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NTYxMTU0ODd9.rDI5zFHw9neGTKQjn_SCxSG4jQEyJGfwc0_W8mNcMTU
 
 ### Movies Index
 get http://localhost:3000/movies.json
@@ -11,8 +11,8 @@ post http://localhost:3000/users.json
 Content-Type: application/json
 
 {
-  "username": "test",
-  "email": "test@test.com",
+  "username": "testy",
+  "email": "testy@test.com",
   "password": "password",
   "password_confirmation": "password"
 }
@@ -24,7 +24,8 @@ get http://localhost:3000/users.json
 get http://localhost:3000/users/2
 
 ### User Destroy
-delete http://localhost:3000/users/3
+delete http://localhost:3000/users/3.json
+Authorization: Bearer {{jwt}}
 
 ### RatedMovie Index
 get http://localhost:3000/rated_movies
@@ -48,6 +49,6 @@ POST http://localhost:3000/sessions.json
 Content-Type: application/json
 
 {
-  "username": "test",
+  "username": "kevin",
   "password": "password"
 }

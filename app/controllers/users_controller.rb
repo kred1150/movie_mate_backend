@@ -25,7 +25,11 @@ class UsersController < ApplicationController
 
   def destroy
     user = User.find_by(id: params[:id])
-    user.destroy()
-    render json: { message: "User successfully deleted!" }
+    if user.id == current_user.id
+      user.destroy()
+      render json: { message: "User successfully deleted!" }
+    else
+      render json: { message: "You can only delete a profile you created!" }, status: 401
+    end
   end
 end
