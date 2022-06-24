@@ -1,4 +1,4 @@
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NTYxMTU0ODd9.rDI5zFHw9neGTKQjn_SCxSG4jQEyJGfwc0_W8mNcMTU
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NTYxMTYwNzF9.OeVNBp4_-76CdfhKbCe5qN29iJOffLq_6J7P12N6Pac
 
 ### Movies Index
 get http://localhost:3000/movies.json
@@ -33,22 +33,26 @@ get http://localhost:3000/rated_movies
 ### RatedMovie Create 
 post http://localhost:3000/rated_movies.json 
 Content-Type: application/json
+Authorization: Bearer {{jwt}}
 
 {
   "rating": 5.7,
   "message": "A lot to be desired",
-  "user_id": 2,
   "movie_id": 1
 }
 
 ### RatedMovie Show
 get  http://localhost:3000/rated_movies/2
 
+### RatedMovie Destroy
+delete http://localhost:3000/rated_movies/2.json
+Authorization: Bearer {{jwt}}
+
 ### Sessions Create (Login)
 POST http://localhost:3000/sessions.json
 Content-Type: application/json
 
 {
-  "username": "kevin",
+  "username": "test",
   "password": "password"
 }

@@ -22,4 +22,14 @@ class RatedMoviesController < ApplicationController
     rated_movie = RatedMovie.find_by(id: params[:id])
     render json: rated_movie.as_json
   end
+
+  def destroy
+    movie = RatedMovie.find_by(id: params[:id])
+    if movie.user_id == current_user.id
+      movie.destroy()
+      render json: { message: "Rating successfully deleted!" }
+    else
+      render json: { message: "You can only delete a rating you created!" }, status: 401
+    end
+  end
 end

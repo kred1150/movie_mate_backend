@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   get "/rated_movies" => "rated_movies#index"
   get "/rated_movies/:id" => "rated_movies#show"
   post "/rated_movies" => "rated_movies#create"
+  delete "/rated_movies/:id" => "rated_movies#destroy"
 end
