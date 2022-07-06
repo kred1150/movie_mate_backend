@@ -1,0 +1,23 @@
+@rated_movies.map do |rated_movie|
+  {
+    rating: {
+      id: rated_movie.id,
+      rating: rated_movie.rating,
+      message: rated_movie.message
+    },
+    user: {
+      username: rated_movie.user.username,
+      email: rated_movie.user.email
+    },
+    movie: {
+      external_id: rated_movie.movie.id,
+      title: rated_movie.movie.title,
+      overview: rated_movie.movie.overview,
+      poster_path: "https://image.tmdb.org/t/p/w1280/" + rated_movie.movie.poster_path,
+      release_date: rated_movie.movie.release_date,
+      runtime: rated_movie.movie.runtime,
+      vote_average: rated_movie.movie.vote_average,
+      vote_count: rated_movie.movie.vote_count,
+    },
+  }
+end

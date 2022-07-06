@@ -28,7 +28,7 @@ delete http://localhost:3000/users/3.json
 Authorization: Bearer {{jwt}}
 
 ### RatedMovie Index
-get http://localhost:3000/rated_movies
+get http://localhost:3000/rated_movies.json
 
 ### RatedMovie Create 
 post http://localhost:3000/rated_movies.json 
@@ -42,7 +42,7 @@ Authorization: Bearer {{jwt}}
 }
 
 ### RatedMovie Show
-get  http://localhost:3000/rated_movies/2
+get  http://localhost:3000/rated_movies/3.json
 
 ### RatedMovie Destroy
 delete http://localhost:3000/rated_movies/2.json
