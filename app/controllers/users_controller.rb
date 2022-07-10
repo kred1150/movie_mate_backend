@@ -20,7 +20,8 @@ class UsersController < ApplicationController
 
   def show
     user = User.find_by(id: params[:id])
-    render json: user.as_json
+    rated_movies = RatedMovie.where(user_id: user.id)
+    render json: { user: user.as_json, ratings: rated_movies.as_json }
   end
 
   def destroy
