@@ -6,6 +6,7 @@
       message: rated_movie.message
     },
     user: {
+      user_id: rated_movie.user.id,
       username: rated_movie.user.username,
       email: rated_movie.user.email
     },
