@@ -14,7 +14,7 @@ class RatedMoviesController < ApplicationController
   end
 
   def index
-    @rated_movies = RatedMovie.all
+    @rated_movies = RatedMovie.all.order(:movie_id)
     render template: "rated_movies/index"
   end
 
