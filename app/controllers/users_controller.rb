@@ -19,9 +19,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    user = User.find_by(id: params[:id])
-    rated_movies = RatedMovie.where(user_id: user.id)
-    render json: { user: user.as_json, ratings: rated_movies.as_json }
+    @user = User.find_by(id: params[:id])
+    @rated_movies = RatedMovie.where(user_id: @user.id)
+    render template: "users/show"
   end
 
   def destroy

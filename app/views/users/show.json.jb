@@ -1,7 +1,23 @@
 {
-  id: @user.id,
-  username: @user.username,
-  
+  user: {
+    id: @user.id,
+    username: @user.username,
+  },
+  rated_movies: @rated_movies.map do |movie|
+    {
+      id: movie.movie.id,
+      external_id: movie.movie.external_id,
+      title: movie.movie.title,
+      overview: movie.movie.overview,
+      poster_path: "https://image.tmdb.org/t/p/w1280/" + movie.movie.poster_path,
+      release_date: movie.movie.release_date,
+      runtime: movie.movie.runtime,
+      vote_average: movie.movie.vote_average,
+      vote_count: movie.movie.vote_count,
+      rating: movie.rating,
+      message: movie.message,
+    }
+  end,
   created_at: @user.created_at,
   updated_at: @user.updated_at
 }
