@@ -8,7 +8,7 @@
 
 # Pull API data for all movies
 i = 1
-while i < 20
+while i < 50
   response = HTTP.get("https://api.themoviedb.org/3/discover/movie?api_key=#{ENV["TMDB_API_KEY"]}&language=en-US&page=#{i}")
   movies = JSON.parse(response.body)["results"]
 
@@ -18,7 +18,7 @@ while i < 20
       external_id: movie["id"],
       title: movie["title"],
       overview: movie["overview"],
-      poster_path: "https://image.tmdb.org/t/p/w1280/" + movie["poster_path"],
+      poster_path: "https://image.tmdb.org/t/p/w1280/#{movie["poster_path"]}",
       release_date: movie["release_date"],
       runtime: movie["runtime"],
       vote_average: movie["vote_average"],
