@@ -60,3 +60,6 @@ Content-Type: application/json
 ### Your Ratings Index
 get  http://localhost:3000/ratings.json
 Authorization: Bearer {{jwt}}
+
+### Actor Show
+get http://localhost:3000/actors/71580.json 
