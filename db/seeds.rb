@@ -10,10 +10,10 @@
 i = 1
 while i < 50
   response = HTTP.get("https://api.themoviedb.org/3/discover/movie?api_key=#{ENV["TMDB_API_KEY"]}&language=en-US&page=#{i}")
-  @movies = JSON.parse(response.body)["results"]
+  movies = JSON.parse(response.body)["results"]
 
   # Loop through API movie list to seed Movie Model
-  @movies.each do |movie|
+  movies.each do |movie|
     Movie.create(
       external_id: movie["id"],
       title: movie["title"],
