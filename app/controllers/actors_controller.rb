@@ -10,7 +10,8 @@ class ActorsController < ApplicationController
     name = JSON.parse(profile.body)["name"]
     birthplace = JSON.parse(profile.body)["place_of_birth"]
     profile_path = JSON.parse(profile.body)["profile_path"]
+    cinemetography = JSON.parse(known_for.body)["cast"]
 
-    render json: { bio: bio.as_json, birthday: birthday.as_json, deathday: deathday.as_json, name: name.as_json, birthplace: birthplace.as_json, profile_path: profile_path.as_json }
+    render json: { bio: bio.as_json, birthday: birthday.as_json, deathday: deathday.as_json, name: name.as_json, birthplace: birthplace.as_json, profile_path: profile_path.as_json, cinemetography: cinemetography.as_json }
   end
 end
