@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
   end
 
   def show
-    movie = Movie.find_by(id: params[:id])
+    movie = Movie.find_by(external_id: params[:id])
     stream_response = HTTP.get("https://api.themoviedb.org/3/movie/#{movie["external_id"]}/watch/providers?api_key=#{ENV["TMDB_API_KEY"]}")
     stream = JSON.parse(stream_response.body)["results"]["US"]
     cast_response = HTTP.get("https://api.themoviedb.org/3/movie/#{movie["external_id"]}/credits?api_key=#{ENV["TMDB_API_KEY"]}")
