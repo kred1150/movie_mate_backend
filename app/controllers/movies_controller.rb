@@ -5,8 +5,13 @@ class MoviesController < ApplicationController
   end
 
   def show
-    movie = Movie.find_by(external_id: params[:id])
     movie_id = params[:id]
+    if Movie.find_by(external_id: params[:id]) == nil
+      response = HTTP.get("https://api.themoviedb.org/3/movie/#{movie_id}?api_key=#{ENV["TMDB_API_KEY"]}")
+      movie = JSON.parse(response.body)
+    else
+      movie = Movie.find_by(external_id: params[:id])
+    end
     stream_response = HTTP.get("https://api.themoviedb.org/3/movie/#{movie_id}/watch/providers?api_key=#{ENV["TMDB_API_KEY"]}")
     stream = JSON.parse(stream_response.body)["results"]["US"]
     cast_response = HTTP.get("https://api.themoviedb.org/3/movie/#{movie_id}/credits?api_key=#{ENV["TMDB_API_KEY"]}")
