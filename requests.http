@@ -4,7 +4,7 @@
 get http://localhost:3000/movies.json
 
 ### Movies Show
-get http://localhost:3000/movies/3.json 
+get http://localhost:3000/movies/21370.json 
 
 ### User Create
 post http://localhost:3000/users.json
