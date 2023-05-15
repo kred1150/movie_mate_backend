@@ -9,6 +9,16 @@ class MoviesController < ApplicationController
     if Movie.find_by(external_id: params[:id]) == nil
       response = HTTP.get("https://api.themoviedb.org/3/movie/#{movie_id}?api_key=#{ENV["TMDB_API_KEY"]}")
       movie = JSON.parse(response.body)
+      Movie.create(
+        external_id: movie["id"],
+        title: movie["title"],
+        overview: movie["overview"],
+        poster_path: "https://image.tmdb.org/t/p/w1280/#{movie["poster_path"]}",
+        release_date: movie["release_date"],
+        runtime: movie["runtime"],
+        vote_average: movie["vote_average"],
+        vote_count: movie["vote_count"],
+      )
     else
       movie = Movie.find_by(external_id: params[:id])
     end
