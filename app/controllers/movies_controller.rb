@@ -24,12 +24,14 @@ class MoviesController < ApplicationController
     end
     stream_response = HTTP.get("https://api.themoviedb.org/3/movie/#{movie_id}/watch/providers?api_key=#{ENV["TMDB_API_KEY"]}")
     stream = JSON.parse(stream_response.body)["results"]["US"]
+    similar_response = stream_response = HTTP.get("https://api.themoviedb.org/3/movie/#{movie_id}/similar?api_key=#{ENV["TMDB_API_KEY"]}")
+    similar = JSON.parse(similar_response.body)
     cast_response = HTTP.get("https://api.themoviedb.org/3/movie/#{movie_id}/credits?api_key=#{ENV["TMDB_API_KEY"]}")
     cast = JSON.parse(cast_response.body)["cast"]
     videos_response = HTTP.get("https://api.themoviedb.org/3/movie/#{movie_id}/videos?api_key=#{ENV["TMDB_API_KEY"]}&language=en-US")
     videos = JSON.parse(videos_response.body)["results"]
     images_response = HTTP.get("https://api.themoviedb.org/3/movie/#{movie_id}/images?api_key=#{ENV["TMDB_API_KEY"]}")
     background_image = JSON.parse(images_response.body)["backdrops"][0]
-    render json: { movie: movie.as_json, stream: stream.as_json, cast: cast.as_json, videos: videos.as_json, background_image: background_image.as_json }
+    render json: { movie: movie.as_json, stream: stream.as_json, cast: cast.as_json, videos: videos.as_json, background_image: background_image.as_json, similar_movies: similar.as_json }
   end
 end
